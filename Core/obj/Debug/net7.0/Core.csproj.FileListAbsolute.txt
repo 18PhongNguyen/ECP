@@ -1,0 +1,12 @@
+D:\E-CommerenceProject\Core\bin\Debug\net7.0\Core.deps.json
+D:\E-CommerenceProject\Core\bin\Debug\net7.0\Core.dll
+D:\E-CommerenceProject\Core\bin\Debug\net7.0\Core.pdb
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.AssemblyInfoInputs.cache
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.AssemblyInfo.cs
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.csproj.CoreCompileInputs.cache
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.sourcelink.json
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.dll
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\refint\Core.dll
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\Core.pdb
+D:\E-CommerenceProject\Core\obj\Debug\net7.0\ref\Core.dll
