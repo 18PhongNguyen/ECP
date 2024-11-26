@@ -1,0 +1,8 @@
+obj
+bin
+appsettings.json
+*.db
+.vs
+.vscode
+.editorconfig
+*.sln
