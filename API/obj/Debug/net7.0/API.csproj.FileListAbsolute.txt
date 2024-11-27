@@ -66,3 +66,6 @@ D:\E-CommerenceProject\API\obj\Debug\net7.0\refint\API.dll
 D:\E-CommerenceProject\API\obj\Debug\net7.0\API.pdb
 D:\E-CommerenceProject\API\obj\Debug\net7.0\API.genruntimeconfig.cache
 D:\E-CommerenceProject\API\obj\Debug\net7.0\ref\API.dll
+D:\E-CommerenceProject\API\bin\Debug\net7.0\AutoMapper.dll
+D:\E-CommerenceProject\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\E-CommerenceProject\API\bin\Debug\net7.0\API.staticwebassets.runtime.json

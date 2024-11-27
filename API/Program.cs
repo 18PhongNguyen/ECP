@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +11,12 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString()));
-        builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString()));
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
         string GetConnectionString()
         {
@@ -48,6 +51,8 @@ internal class Program
 
         // Configure the HTTP request pipeline.
         app.UseHttpsRedirection();
+        app.UseRouting();
+        app.UseStaticFiles();
         app.UseAuthorization();
         app.MapControllers();
         app.Run();
