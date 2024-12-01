@@ -1,9 +1,8 @@
-using System.Security.Cryptography.X509Certificates;
 using API.Helpers;
-using Core.Interfaces;
+using API.Middleware;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using API.Extensions;
 
 internal class Program
 {
@@ -11,17 +10,15 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString()));
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
-            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            builder.Services.AddAutoMapper(typeof(MappingProfiles));
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString(builder.Configuration)));
+        builder.Services.AddAutoMapper(typeof(MappingProfiles));
+        builder.Services.AddApplicationServices();
+        builder.Services.AddSwaggerDocumentation();
 
-        string GetConnectionString()
-        {
-            return builder.Configuration.GetConnectionString("DefaultConnection");
-        }
+
+        
 
         // Configure Kestrel
         builder.WebHost.ConfigureKestrel(serverOptions =>
@@ -40,21 +37,30 @@ internal class Program
             {
                 var context = services.GetRequiredService<StoreContext>();
                 await context.Database.MigrateAsync();
-                await StoreContextSeed.SeedAsync(context,loggerFactory);
+                await StoreContextSeed.SeedAsync(context, loggerFactory);
             }
             catch (Exception ex)
             {
                 var logger = loggerFactory.CreateLogger<Program>();
-                logger.LogError(ex, "An error occured during migration");
+                logger.LogError(ex, "An error occurred during migration");
             }
         }
+
+        app.UseMiddleware<ExceptionMiddleware>();
+        app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
         // Configure the HTTP request pipeline.
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseStaticFiles();
         app.UseAuthorization();
+        app.UseSwaggerDocumentation();
         app.MapControllers();
         app.Run();
+    }
+
+    private static string GetConnectionString(IConfiguration configuration)
+    {
+        return configuration.GetConnectionString("DefaultConnection");
     }
 }

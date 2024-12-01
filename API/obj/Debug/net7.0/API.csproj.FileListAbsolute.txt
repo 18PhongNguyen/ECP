@@ -69,3 +69,8 @@ D:\E-CommerenceProject\API\obj\Debug\net7.0\ref\API.dll
 D:\E-CommerenceProject\API\bin\Debug\net7.0\AutoMapper.dll
 D:\E-CommerenceProject\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\E-CommerenceProject\API\bin\Debug\net7.0\API.staticwebassets.runtime.json
+D:\E-CommerenceProject\api\bin\Debug\net7.0\Microsoft.OpenApi.dll
+D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\E-CommerenceProject\api\obj\Debug\net7.0\API.MvcApplicationPartsAssemblyInfo.cs
