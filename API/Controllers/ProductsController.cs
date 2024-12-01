@@ -31,10 +31,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(
+            string sort, int? brandId, int? typeId)
         {
-            var specification = new ProductWithTypeAndBrandsSpecification();
+            var specification = new ProductWithTypeAndBrandsSpecification(sort,brandId, typeId);
             var products = await _productsRepo.ListAsync(specification);
             if (products == null)
                 {
