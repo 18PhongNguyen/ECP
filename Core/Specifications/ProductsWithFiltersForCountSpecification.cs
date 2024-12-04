@@ -9,7 +9,7 @@ namespace Core.Specifications
             (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) &&
             (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId))
         {
-
+            
         }
     }
-}
+} 

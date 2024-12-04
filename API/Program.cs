@@ -17,7 +17,15 @@ internal class Program
         builder.Services.AddApplicationServices();
         builder.Services.AddSwaggerDocumentation();
 
-
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowLocalhost", policy =>
+        {
+            policy.WithOrigins("https://localhost:4200")  
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    });
         
 
         // Configure Kestrel
@@ -50,6 +58,7 @@ internal class Program
         app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
         // Configure the HTTP request pipeline.
+        app.UseCors("AllowLocalhost");
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseStaticFiles();
