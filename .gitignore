@@ -6,3 +6,5 @@ obj/
 ssl
 *.sln
 proxy.config.json
+package-lock.json
+package.json
