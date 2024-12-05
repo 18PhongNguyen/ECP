@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PagingHeaderComponent } from '../shared/components/paging-header/paging-header.component';
 import { PagerComponent } from '../shared/components/pager/pager.component';
 
+
+
 @Component({
   selector: 'app-shop',
   standalone: true,
@@ -18,7 +20,7 @@ import { PagerComponent } from '../shared/components/pager/pager.component';
     ProductItemComponent,
     SharedModule,
     PagingHeaderComponent,
-    PagerComponent,
+    PagerComponent
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',

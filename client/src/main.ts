@@ -1,9 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(), // This will work for client-side HTTP
+    provideRouter(routes),
+    provideHttpClient(withFetch())
   ],
 }).catch(err => console.error(err));
+
+//$env:NODE_TLS_REJECT_UNAUTHORIZED=0
