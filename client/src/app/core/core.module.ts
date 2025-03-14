@@ -10,7 +10,7 @@ import { routes } from '../app.routes';
   declarations: [],
   imports: [
     CommonModule,
-    NavBarComponent
+    NavBarComponent,
   ],
   exports: [
     NavBarComponent
