@@ -9,6 +9,7 @@ import { ShopParams } from '../shared/models/shopParams';
 import { SharedModule } from '../shared/shared.module';
 import { PagingHeaderComponent } from '../shared/components/paging-header/paging-header.component';
 import { PagerComponent } from '../shared/components/pager/pager.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -20,13 +21,14 @@ import { PagerComponent } from '../shared/components/pager/pager.component';
     ProductItemComponent,
     SharedModule,
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    NgxSpinnerModule
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', { static: true }) searchTerm!: ElementRef;
+  @ViewChild('search', { static: false }) searchTerm!: ElementRef;
   products: IProduct[] = [];
   brands: IBrand[] = [];
   types: IType[] = [];

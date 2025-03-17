@@ -8,6 +8,7 @@ export const routes: Routes = [
   {
     path: ':id',
     loadComponent: () =>
-      import('./product-details/product-details.component').then(mod => mod.ProductDetailsComponent) 
+      import('./product-details/product-details.component').then(mod => mod.ProductDetailsComponent),
+    data: {breadcrumb: {alias: 'productDetails'}} 
   }
 ];
