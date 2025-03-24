@@ -8,8 +8,6 @@ import { provideToastr } from 'ngx-toastr';
 import { routes } from './app/app.routes';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { importProvidersFrom } from '@angular/core';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { sharedProviders } from './app/shared/shared.providers';
 
 bootstrapApplication(AppComponent, {
@@ -25,7 +23,9 @@ bootstrapApplication(AppComponent, {
     }),
     provideNoopAnimations(),
     BreadcrumbService,
-    importProvidersFrom(CarouselModule.forRoot()),
     sharedProviders
   ],
 }).catch(err => console.error(err));
+
+//set NODE_TLS_REJECT_UNAUTHORIZED=0
+//ng serve --ssl

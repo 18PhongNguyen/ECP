@@ -8,5 +8,4 @@ export const sharedProviders = [
   provideHttpClient(),      
   importProvidersFrom(PaginationModule.forRoot()),
   provideNoopAnimations(),
-  //importProvidersFrom(CarouselModule.forRoot()),
 ]

@@ -74,3 +74,5 @@ D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\E-CommerenceProject\api\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\E-CommerenceProject\api\obj\Debug\net7.0\API.MvcApplicationPartsAssemblyInfo.cs
+D:\E-CommerenceProject\API\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
+D:\E-CommerenceProject\API\bin\Debug\net7.0\StackExchange.Redis.dll

@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IProduct } from '../shared/models/product';
-import { ShopService } from './shop.service';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ShopService } from './shop.service';
+import { IProduct } from '../shared/models/product';
 import { IBrand } from '../shared/models/brands';
 import { IType } from '../shared/models/types';
 import { ShopParams } from '../shared/models/shopParams';
@@ -10,8 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PagingHeaderComponent } from '../shared/components/paging-header/paging-header.component';
 import { PagerComponent } from '../shared/components/pager/pager.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
-
+import { RouterModule } from '@angular/router';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @Component({
   selector: 'app-shop',
@@ -22,7 +22,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SharedModule,
     PagingHeaderComponent,
     PagerComponent,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    RouterModule,
+    CarouselModule,
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
@@ -35,14 +37,24 @@ export class ShopComponent implements OnInit {
   shopParams = new ShopParams();
   totalCount: number = 0;
   sortOptions = [
-    { name: 'Alphabetica', value: 'name' },
+    { name: 'Alphabetical', value: 'name' },
     { name: 'Price: Low to High', value: 'priceAsc' },
     { name: 'Price: High to Low', value: 'priceDesc' },
   ];
+  isBrowser = false;
 
-  constructor(private shopService: ShopService) {}
+  constructor(
+    private shopService: ShopService,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
 
   ngOnInit(): void {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
+    if (this.isBrowser) {
+      console.log('Running on browser');
+    }
+
     this.getProducts();
     this.getBrands();
     this.getTypes();
