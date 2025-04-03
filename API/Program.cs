@@ -4,6 +4,9 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using API.Extensions;
 using StackExchange.Redis;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Core.Entities.Identity;
 
 internal class Program
 {
@@ -14,6 +17,10 @@ internal class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString(builder.Configuration)));
+        builder.Services.AddDbContext<AppIdentityDbContext>(x => 
+        {
+            x.UseSqlite(builder.Configuration.GetConnectionString("IdentityConnection"));
+        });
         builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
             var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
             var configuration = ConfigurationOptions.Parse(redisConnectionString,true);
@@ -21,6 +28,7 @@ internal class Program
         });
         builder.Services.AddAutoMapper(typeof(MappingProfiles));
         builder.Services.AddApplicationServices();
+        builder.Services.AddIdentityServices(builder.Configuration);
         builder.Services.AddSwaggerDocumentation();
 
     builder.Services.AddCors(options =>
@@ -52,6 +60,11 @@ internal class Program
                 var context = services.GetRequiredService<StoreContext>();
                 await context.Database.MigrateAsync();
                 await StoreContextSeed.SeedAsync(context, loggerFactory);
+
+                var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+                await identityContext.Database.MigrateAsync();
+                await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
             }
             catch (Exception ex)
             {
@@ -68,6 +81,7 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseStaticFiles();
+        app.UseAuthentication();
         app.UseAuthorization();
         app.UseSwaggerDocumentation();
         app.MapControllers();
