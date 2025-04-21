@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using API.Dtos;
 using API.Errors;
 using API.Extensions;
@@ -50,6 +49,14 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Register(RegisterDto 
         registerDto)
         {
+            if(CheckEmailExistAsync(registerDto.Email).Result.Value) 
+                {
+                    return new BadRequestObjectResult(new ApiValidationErrorResponse
+                    {
+                        Errors = new[] { "Email address is in use" }
+                    });
+                }
+
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,
