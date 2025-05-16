@@ -49,7 +49,8 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Register(RegisterDto 
         registerDto)
         {
-            if(CheckEmailExistAsync(registerDto.Email).Result.Value) 
+            var emailExists = await _userManager.FindByEmailAsync(registerDto.Email) != null;
+            if(emailExists) 
                 {
                     return new BadRequestObjectResult(new ApiValidationErrorResponse
                     {
@@ -90,7 +91,7 @@ namespace API.Controllers
             };
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("emailexists")]
         public async Task<ActionResult<bool>> CheckEmailExistAsync([FromQuery] string email)
         {

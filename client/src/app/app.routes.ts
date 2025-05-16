@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent, data: {breadcrumb: 'Home'}},
@@ -13,8 +14,10 @@ export const routes: Routes = [
     data: {breadcrumb: 'Shop'}},
     {path: 'basket', loadChildren: () => import('./basket/basket.routes').then(mod => 
         mod.routes), data: {breadcrumb: 'Basket'}},
-    {path: 'checkout', loadChildren: () => import('./checkout/checkout.routes').then(mod => 
+    {path: 'checkout', canActivate:[authGuard], loadChildren: () => import('./checkout/checkout.routes').then(mod => 
         mod.routes), data: {breadcrumb: 'Checkout'}},
+    {path: 'account', loadChildren: () => import('./account/account.routes').then(mod => 
+        mod.routes), data: {breadcrumb: {skip: true}}},
     {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
