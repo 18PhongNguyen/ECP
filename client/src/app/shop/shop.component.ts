@@ -2,9 +2,9 @@ import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ShopService } from './shop.service';
-import { IProduct } from '../shared/models/product';
-import { IBrand } from '../shared/models/brands';
-import { IType } from '../shared/models/types';
+import { Product } from '../shared/models/product';
+import { Brand } from '../shared/models/brands';
+import { Type } from '../shared/models/types';
 import { ShopParams } from '../shared/models/shopParams';
 import { SharedModule } from '../shared/shared.module';
 import { PagingHeaderComponent } from '../shared/components/paging-header/paging-header.component';
@@ -31,9 +31,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 })
 export class ShopComponent implements OnInit {
   @ViewChild('search', { static: false }) searchTerm!: ElementRef;
-  products: IProduct[] = [];
-  brands: IBrand[] = [];
-  types: IType[] = [];
+  products: Product[] = [];
+  brands: Brand[] = [];
+  types: Type[] = [];
   shopParams = new ShopParams();
   totalCount: number = 0;
   sortOptions = [

@@ -1,12 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPagination } from '../shared/models/pagination';
-import { IBrand } from '../shared/models/brands';
-import { IType } from '../shared/models/types';
+import { Pagination } from '../shared/models/pagination';
+import { Brand } from '../shared/models/brands';
+import { Type } from '../shared/models/types';
 import { Observable } from 'rxjs';
 import { ShopParams } from '../shared/models/shopParams';
 import { map } from 'rxjs/operators';
-import { IProduct } from '../shared/models/product';
+import { Product } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ShopService {
   constructor(private http: HttpClient) { }
 
   // Get products with filtering, sorting, and pagination
-  getProducts(shopParams: ShopParams): Observable<IPagination> {
+  getProducts(shopParams: ShopParams): Observable<Pagination> {
     let params = new HttpParams();
 
     if (shopParams.brandId !== 0) {
@@ -37,22 +37,22 @@ export class ShopService {
     params = params.append('pageIndex', shopParams.pageNumber.toString());
     params = params.append('pageSize', shopParams.pageSize.toString());
 
-    return this.http.get<IPagination>(`${this.baseUrl}products`, { params })
+    return this.http.get<Pagination>(`${this.baseUrl}products`, { params })
       .pipe(
         map(response => response) 
       );
   }
 
 
-  getProduct(id: number): Observable<IProduct>{
-    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
+  getProduct(id: number): Observable<Product>{
+    return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 
-  getBrands(): Observable<IBrand[]> {
-    return this.http.get<IBrand[]>(`${this.baseUrl}products/brands`);
+  getBrands(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(`${this.baseUrl}products/brands`);
   }
 
-  getTypes(): Observable<IType[]> {
-    return this.http.get<IType[]>(`${this.baseUrl}products/types`);
+  getTypes(): Observable<Type[]> {
+    return this.http.get<Type[]>(`${this.baseUrl}products/types`);
   }
 }

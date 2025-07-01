@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../../shared/models/product';
+import { Product } from '../../shared/models/product';
 import { ShopService } from '../shop.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { BasketService } from '../../basket/basket.service';
-import { IBasketItem } from '../../shared/models/basket';
+import { BasketItem } from '../../shared/models/basket';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +16,7 @@ import { IBasketItem } from '../../shared/models/basket';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  product: IProduct | undefined
+  product: Product | undefined
   quantity = 1;
   constructor(
     private shopService: ShopService,
@@ -63,7 +63,7 @@ export class ProductDetailsComponent implements OnInit {
       this.quantity--;
   }
   
-  mapProductItemToBasketItem(item: IProduct, quantity: number): IBasketItem {
+  mapProductItemToBasketItem(item: Product, quantity: number): BasketItem {
     return {
       id: item.id,
       productName: item.name,

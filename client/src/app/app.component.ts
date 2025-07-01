@@ -7,7 +7,7 @@ import { SectionHeaderComponent } from "./core/section-header/section-header.com
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { BasketService } from './basket/basket.service';
 import { AccountService } from './account/account.service';
-import { IUser } from './shared/models/user';
+import { User } from './shared/models/user';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
 
     if (token) {
         this.accountService.loadCurrentUser(token).subscribe({
-          next: (user: IUser | null) => {
+          next: (user: User | null) => {
             console.log('Initialised user from local storage',user);
           },
           error: (err: any) => {

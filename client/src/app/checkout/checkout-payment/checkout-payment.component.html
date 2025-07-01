@@ -1,0 +1,44 @@
+<div class="mt-4" *ngIf="checkoutForm" [formGroup]="checkoutForm!">
+    <div class="row">
+        <div class="form-group col-12" formGroupName="paymentForm">
+            <app-text-input [label]="'Name on card'" formControlName="nameOnCard"></app-text-input>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="form-group">
+                <label class="form-label">Card Number</label>
+                <div class="stripe-container">
+                    <div #cardNumber></div>
+                </div>
+                <span class="text-danger">{{cardErrors}}</span>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label class="form-label">Card Expiry</label>
+                <div class="stripe-container">
+                    <div #cardExpiry></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label class="form-label">Card CVC</label>
+                <div class="stripe-container">
+                    <div #cardCvc></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between flex-row mb-5">
+    <button class="btn btn-outline-primary" cdkStepperPrevious>
+        <i class="fa fa-angle-left"></i> Back to review
+    </button>
+    <button [disabled]="loading || !paymentFormComplete" class="btn btn-primary" (click)="submitOrder()">
+        Submit order <i class="fa fa-angle-right"></i> 
+        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+    </button>
+</div>

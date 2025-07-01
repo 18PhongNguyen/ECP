@@ -2,9 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BasketService } from '../../basket/basket.service';
 import { Observable } from 'rxjs';
-import { IBasket } from '../../shared/models/basket';
+import { Basket } from '../../shared/models/basket';
 import { CommonModule } from '@angular/common';
-import { IUser } from '../../shared/models/user';
+import { User } from '../../shared/models/user';
 import { AccountService } from '../../account/account.service';
 import { BsDropdownConfig, BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
@@ -23,8 +23,8 @@ import { BsDropdownConfig, BsDropdownModule } from 'ngx-bootstrap/dropdown';
   ]
 })
 export class NavBarComponent implements OnInit{
-  basket$: Observable<IBasket | null> | undefined;
-  currentUser$: Observable<IUser| null> | undefined;
+  basket$: Observable<Basket | null> | undefined;
+  currentUser$: Observable<User| null> | undefined;
 
   constructor(private basketService: BasketService, private accountService: AccountService) {}
 

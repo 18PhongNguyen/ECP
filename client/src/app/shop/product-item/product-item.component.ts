@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../../shared/models/product';
+import { Product } from '../../shared/models/product';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BasketService } from '../../basket/basket.service';
-import { IBasketItem } from '../../shared/models/basket';
+import { BasketItem } from '../../shared/models/basket';
 
 @Component({
   selector: 'app-product-item',
@@ -16,7 +16,7 @@ import { IBasketItem } from '../../shared/models/basket';
   styleUrl: './product-item.component.scss'
 })
 export class ProductItemComponent{
-  @Input() product: IProduct = {
+  @Input() product: Product = {
     id: 0,
     name: '',
     description: '',

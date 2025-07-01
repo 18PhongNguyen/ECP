@@ -9,13 +9,18 @@ import { routes } from './app/app.routes';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { sharedProviders } from './app/shared/shared.providers';
+import { JwtInterceptor } from './app/core/interceptors/jwt.interceptor';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     provideHttpClient(
       withFetch(),
-      withInterceptors([ErrorInterceptor, LoadingInterceptor])
+      withInterceptors([
+        ErrorInterceptor,
+        LoadingInterceptor,
+        JwtInterceptor
+      ])
     ),
     provideToastr({
       positionClass: 'toast-bottom-right',

@@ -7,6 +7,7 @@ using StackExchange.Redis;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Core.Entities.Identity;
+using Stripe;
 
 internal class Program
 {
@@ -30,6 +31,7 @@ internal class Program
         builder.Services.AddApplicationServices();
         builder.Services.AddIdentityServices(builder.Configuration);
         builder.Services.AddSwaggerDocumentation();
+        builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
 
     builder.Services.AddCors(options =>
     {
@@ -50,6 +52,9 @@ internal class Program
         });
 
         var app = builder.Build();
+
+        // Configure Stripe
+        StripeConfiguration.ApiKey = builder.Configuration.GetSection("StripeSettings:SecretKey").Value;
 
         await using (var scope = app.Services.CreateAsyncScope())
         {

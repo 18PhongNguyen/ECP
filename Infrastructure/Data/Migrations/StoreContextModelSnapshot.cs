@@ -15,7 +15,7 @@ namespace Infrastructure.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
 
             modelBuilder.Entity("Core.Entities.OrderAggregate.DeliveryMethod", b =>
                 {
@@ -52,10 +52,10 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int?>("DeliveryMethodId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTimeOffset>("OrderDate")
-                        .HasColumnType("TEXT");
+                    b.Property<long>("OrderDate")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("PaymentItentId")
+                    b.Property<string>("PaymentIntentId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")

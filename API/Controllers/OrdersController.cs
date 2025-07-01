@@ -63,6 +63,7 @@ namespace API.Controllers
         }
 
         [HttpGet("deliveryMethods")]
+        [AllowAnonymous]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {
             var deliveryMethods = await _orderService.GetDeliveryMethodsAsync();

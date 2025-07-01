@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBasketTotals } from '../../models/basket';
+import { BasketTotals } from '../../models/basket';
 import { BasketService } from '../../../basket/basket.service';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './order-totals.component.scss'
 })
 export class OrderTotalsComponent implements OnInit{
-  basketTotal$: Observable<IBasketTotals | null> | undefined;
+  basketTotal$: Observable<BasketTotals | null> | undefined;
 
   constructor(private basketService: BasketService) {}
 
