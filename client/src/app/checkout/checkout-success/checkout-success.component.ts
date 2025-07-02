@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Order } from '../../shared/models/order';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-checkout-success',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './checkout-success.component.html',
   styleUrl: './checkout-success.component.scss'
 })
