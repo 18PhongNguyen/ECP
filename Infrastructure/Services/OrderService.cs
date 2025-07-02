@@ -6,6 +6,7 @@ using Core.Entities;
 using Core.Entities.OrderAggregate;
 using Core.Interfaces;
 using Core.Specifications;
+using Microsoft.VisualBasic;
 
 namespace Infrastructure.Services
 {
@@ -34,16 +35,27 @@ namespace Infrastructure.Services
                 items.Add(orderItem);
             }
 
-            var deliveryMethod = await _unitOfWork.Repository<DeliveryMethod>().GetByIdAsync(deliveryMethodId);
-            var subTotal = items.Sum(item => item.Price * item.Quantity);
-            var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subTotal);
+            var spec = new OrdersWithItemAndOrderingSpecification(buyerEmail);
+            var order = await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
+            var deliveryMethod = await _unitOfWork.Repository<DeliveryMethod>()
+                .GetByIdAsync(deliveryMethodId);
+            var subtotal = items.Sum(item => item.Price * item.Quantity);
+            if (order != null)
+            {
+                order.ShipToAddress = shippingAddress;
+                order.DeliveryMethod = deliveryMethod;
+                order.Subtotal = subtotal;
+                _unitOfWork.Repository<Order>().Update(order);
+            }
+            else
+            {
+                order = new Order(items, buyerEmail, shippingAddress, deliveryMethod,
+                     subtotal, basket.PaymentIntentId);
+                _unitOfWork.Repository<Order>().Add(order);
+            }
 
-            _unitOfWork.Repository<Order>().Add(order);
             var result = await _unitOfWork.Complete();
-
             if (result <= 0) return null;
-
-            await _basketRepository.DeleteBasketAsync(basketId);
 
             return order;
         }

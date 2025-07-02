@@ -6,10 +6,15 @@ import { delay, finalize } from 'rxjs';
 export const LoadingInterceptor: HttpInterceptorFn = (req, next) => {
   const busyService = inject(BusyService);
 
-  if(!req.url.includes('emailexists'))
+  if( 
+    req.url.includes('emailExists') ||
+    req.method === 'POST' && req.url.includes('orders')
+  )
   {
-    busyService.busy();
+    return next(req);
   }
+
+  busyService.busy();
 
   return next(req).pipe(
     delay(500), 

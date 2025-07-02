@@ -13,15 +13,13 @@ namespace Infrastructure.Services
         private readonly IBasketRepository _basketRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _config;
-        private readonly ILogger<PaymentService> _logger;
 
         public PaymentService(IBasketRepository basketRepository, IUnitOfWork unitOfWork, 
-            IConfiguration config, ILogger<PaymentService> logger)
+            IConfiguration config)
         {
             _basketRepository = basketRepository;
             _unitOfWork = unitOfWork;
             _config = config;
-            _logger = logger;
         }
 
         public async Task<CustomerBasket> CreateOrUpdatePaymentIntent(string basketId)
@@ -52,22 +50,34 @@ namespace Infrastructure.Services
             var service = new PaymentIntentService();
             PaymentIntent intent;
 
-            var amount = (long)basket.Items.Sum(i => i.Quantity * (i.Price * 100)) + (long)shippingPrice * 100;
-
-            // Always create new payment intent to avoid 404 errors
-            var options = new PaymentIntentCreateOptions
+            if (string.IsNullOrEmpty(basket.PaymentIntentId))
             {
-                Amount = amount,
-                Currency = "usd",
-                PaymentMethodTypes = new List<string> { "card" }
-            };
-            intent = await service.CreateAsync(options);
-            basket.PaymentIntentId = intent.Id;
-            basket.ClientSecret = intent.ClientSecret;
+                var amount = (long)basket.Items.Sum(i => i.Quantity * (i.Price * 100)) + (long)shippingPrice * 100;
+
+                var options = new PaymentIntentCreateOptions
+                {
+                    Amount = amount,
+                    Currency = "usd",
+                    PaymentMethodTypes = new List<string> { "card" }
+                };
+                intent = await service.CreateAsync(options);
+                basket.PaymentIntentId = intent.Id;
+                basket.ClientSecret = intent.ClientSecret;
+            }
+            else
+            {
+                var options = new PaymentIntentUpdateOptions
+                {
+                    Amount = (long)basket.Items.Sum(i => i.Quantity * (i.Price * 100)) + (long)shippingPrice * 100,
+                };
+                await service.UpdateAsync(basket.PaymentIntentId, options);
+            }
 
             await _basketRepository.UpdateBasketAsync(basket);
+            
             return basket;
         }
+
 
         public async Task<Order> UpdateOrderPaymentFailed(string paymentIntentId)
         {

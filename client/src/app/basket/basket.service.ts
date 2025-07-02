@@ -21,8 +21,13 @@ export class BasketService {
   constructor(private http: HttpClient) { }
 
   setShippingPrice(deliveryMethod: DeliveryMethod) {
-    this.shipping = deliveryMethod.price;
-    this.calculateTotals();
+    const bakset = this.getCurrentBasketValue();
+    if (bakset) {
+      this.shipping = deliveryMethod.price;
+      bakset.deliveryMethodId = deliveryMethod.id;
+      bakset.shippingPrice = deliveryMethod.price;
+      this.setBasket(bakset);
+    }
   }
 
 
@@ -116,8 +121,8 @@ export class BasketService {
     const basket = this.getCurrentBasketValue();
     const shipping = this.shipping;
     const subtotal = basket?.items.reduce((a,b) => (b.price * b.quantity) + a, 0);
-    const total = (subtotal ?? 0) + shipping;
-    this.basketTotalSource.next({shipping, total, subtotal: subtotal ?? 0})
+    const total = (subtotal ?? 0) + (basket?.shippingPrice ?? 0);
+    this.basketTotalSource.next({shipping: (basket?.shippingPrice ?? 0), total, subtotal: subtotal ?? 0})
   }
 
  private addOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number):
