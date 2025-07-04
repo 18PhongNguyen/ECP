@@ -1,146 +1,162 @@
 [
   {
-    "Name": "Angular Speedster Board 2000",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 200,
-    "PictureUrl": "images/products/sb-ang1.png",
+    "Name": "Samsung Galaxy S24 Ultra",
+    "Description": "Premium flagship smartphone with 200MP camera, S Pen support, and 6.8-inch Dynamic AMOLED display. Features powerful Snapdragon processor and all-day battery life.",
+    "Price": 1199.99,
+    "PictureUrl": "images/products/samsung-s24-ultra.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 1
   },
   {
-    "Name": "Green Angular Board 3000",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 150,
-    "PictureUrl": "images/products/sb-ang2.png",
+    "Name": "Samsung Galaxy A54",
+    "Description": "Mid-range smartphone with excellent camera performance, vibrant Super AMOLED display, and reliable performance for everyday use.",
+    "Price": 449.99,
+    "PictureUrl": "images/products/samsung-a54.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 1
   },
   {
-    "Name": "Core Board Speed Rush 3",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 180,
-    "PictureUrl": "images/products/sb-core1.png",
+    "Name": "iPhone 15 Pro Max",
+    "Description": "Apple's flagship iPhone with titanium design, A17 Pro chip, and advanced Pro camera system. Features USB-C and Action Button.",
+    "Price": 1199.99,
+    "PictureUrl": "images/products/iphone-15-pro-max.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 2
   },
   {
-    "Name": "Net Core Super Board",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 300,
-    "PictureUrl": "images/products/sb-core2.png",
+    "Name": "iPhone 15",
+    "Description": "The latest iPhone with Dynamic Island, advanced dual-camera system, and USB-C connectivity. Available in beautiful colors.",
+    "Price": 799.99,
+    "PictureUrl": "images/products/iphone-15.jpg",
     "ProductTypeId": 1,
     "ProductBrandId": 2
   },
   {
-    "Name": "React Board Super Whizzy Fast",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 250,
-    "PictureUrl": "images/products/sb-react1.png",
-    "ProductTypeId": 1,
+    "Name": "Dell XPS 13",
+    "Description": "Ultra-portable laptop with stunning InfinityEdge display, premium build quality, and excellent performance for productivity and creativity.",
+    "Price": 999.99,
+    "PictureUrl": "images/products/dell-xps-13.jpg",
+    "ProductTypeId": 2,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Dell Inspiron 15",
+    "Description": "Reliable everyday laptop with solid performance, comfortable keyboard, and good value for money. Perfect for students and professionals.",
+    "Price": 649.99,
+    "PictureUrl": "images/products/dell-inspiron-15.jpg",
+    "ProductTypeId": 2,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "HP Spectre x360",
+    "Description": "Premium 2-in-1 convertible laptop with stunning design, long battery life, and versatile performance for work and entertainment.",
+    "Price": 1149.99,
+    "PictureUrl": "images/products/hp-spectre-x360.jpg",
+    "ProductTypeId": 2,
     "ProductBrandId": 4
   },
   {
-    "Name": "Typescript Entry Board",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Price": 120,
-    "PictureUrl": "images/products/sb-ts1.png",
-    "ProductTypeId": 1,
+    "Name": "HP Pavilion 15",
+    "Description": "Affordable laptop with good performance, modern design, and reliable features for everyday computing needs.",
+    "Price": 579.99,
+    "PictureUrl": "images/products/hp-pavilion-15.jpg",
+    "ProductTypeId": 2,
+    "ProductBrandId": 4
+  },
+  {
+    "Name": "Nike Air Max 270",
+    "Description": "Iconic lifestyle sneakers with Max Air cushioning, breathable mesh upper, and comfortable fit for all-day wear.",
+    "Price": 149.99,
+    "PictureUrl": "images/products/nike-air-max-270.jpg",
+    "ProductTypeId": 4,
     "ProductBrandId": 5
   },
   {
-    "Name": "Core Blue Hat",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 10,
-    "PictureUrl": "images/products/hat-core1.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 2
-  },
-  {
-    "Name": "Green React Woolen Hat",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 8,
-    "PictureUrl": "images/products/hat-react1.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Purple React Woolen Hat",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 15,
-    "PictureUrl": "images/products/hat-react2.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Blue Code Gloves",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 18,
-    "PictureUrl": "images/products/glove-code1.png",
+    "Name": "Nike Air Force 1",
+    "Description": "Classic basketball-inspired sneakers with timeless design, durable construction, and legendary Air cushioning.",
+    "Price": 119.99,
+    "PictureUrl": "images/products/nike-air-force-1.jpg",
     "ProductTypeId": 4,
-    "ProductBrandId": 3
+    "ProductBrandId": 5
   },
   {
-    "Name": "Green Code Gloves",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 15,
-    "PictureUrl": "images/products/glove-code2.png",
+    "Name": "Adidas Ultraboost 22",
+    "Description": "High-performance running shoes with responsive Boost midsole, Primeknit upper, and Continental rubber outsole.",
+    "Price": 189.99,
+    "PictureUrl": "images/products/adidas-ultraboost-22.png",
     "ProductTypeId": 4,
-    "ProductBrandId": 3
-  },
-  {
-    "Name": "Purple React Gloves",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
-    "Price": 16,
-    "PictureUrl": "images/products/glove-react1.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Green React Gloves",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 14,
-    "PictureUrl": "images/products/glove-react2.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Redis Red Boots",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 250,
-    "PictureUrl": "images/products/boot-redis1.png",
-    "ProductTypeId": 3,
     "ProductBrandId": 6
   },
   {
-    "Name": "Core Red Boots",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 189.99,
-    "PictureUrl": "images/products/boot-core2.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 2
+    "Name": "Adidas Stan Smith",
+    "Description": "Iconic tennis-inspired sneakers with clean design, premium leather upper, and timeless appeal for casual wear.",
+    "Price": 89.99,
+    "PictureUrl": "images/products/adidas-stan-smith.jpg",
+    "ProductTypeId": 4,
+    "ProductBrandId": 6
   },
   {
-    "Name": "Core Purple Boots",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Name": "Zara Wool Blend Coat",
+    "Description": "Elegant wool blend coat with modern tailoring, premium fabric, and versatile styling for professional and casual occasions.",
     "Price": 199.99,
-    "PictureUrl": "images/products/boot-core1.png",
+    "PictureUrl": "images/products/zara-wool-coat.jpg",
     "ProductTypeId": 3,
-    "ProductBrandId": 2
+    "ProductBrandId": 7
   },
   {
-    "Name": "Angular Purple Boots",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Price": 150,
-    "PictureUrl": "images/products/boot-ang2.png",
+    "Name": "Zara Cotton T-Shirt",
+    "Description": "Premium cotton t-shirt with comfortable fit, quality construction, and contemporary design. Available in various colors.",
+    "Price": 29.99,
+    "PictureUrl": "images/products/zara-cotton-tshirt.jpg",
     "ProductTypeId": 3,
-    "ProductBrandId": 1
+    "ProductBrandId": 7
   },
   {
-    "Name": "Angular Blue Boots",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 180,
-    "PictureUrl": "images/products/boot-ang1.png",
+    "Name": "H&M Denim Jacket",
+    "Description": "Classic denim jacket with modern fit, quality construction, and versatile styling for layering and casual wear.",
+    "Price": 49.99,
+    "PictureUrl": "images/products/hm-denim-jacket.jpg",
     "ProductTypeId": 3,
-    "ProductBrandId": 1
+    "ProductBrandId": 8
+  },
+  {
+    "Name": "H&M Cotton Hoodie",
+    "Description": "Comfortable cotton hoodie with soft fabric, relaxed fit, and casual styling perfect for everyday wear.",
+    "Price": 39.99,
+    "PictureUrl": "images/products/hm-cotton-hoodie.jpg",
+    "ProductTypeId": 3,
+    "ProductBrandId": 8
+  },
+  {
+    "Name": "The Art of Programming",
+    "Description": "Comprehensive guide to software development covering algorithms, data structures, and best practices for modern programming.",
+    "Price": 59.99,
+    "PictureUrl": "images/products/programming-book.jpg",
+    "ProductTypeId": 5,
+    "ProductBrandId": 9
+  },
+  {
+    "Name": "Digital Marketing Handbook",
+    "Description": "Complete guide to digital marketing strategies, social media marketing, SEO, and online business growth techniques.",
+    "Price": 44.99,
+    "PictureUrl": "images/products/marketing-book.jpg",
+    "ProductTypeId": 5,
+    "ProductBrandId": 9
+  },
+  {
+    "Name": "Wireless Bluetooth Headphones",
+    "Description": "Premium wireless headphones with active noise cancellation, long battery life, and superior sound quality.",
+    "Price": 299.99,
+    "PictureUrl": "images/products/bluetooth-headphones.jpg",
+    "ProductTypeId": 6,
+    "ProductBrandId": 9
+  },
+  {
+    "Name": "Smartphone Stand",
+    "Description": "Adjustable aluminum smartphone stand with stable base, multiple viewing angles, and compatibility with all phone sizes.",
+    "Price": 24.99,
+    "PictureUrl": "images/products/phone-stand.jpg",
+    "ProductTypeId": 6,
+    "ProductBrandId": 9
   }
 ]
