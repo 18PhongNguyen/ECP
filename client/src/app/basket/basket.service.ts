@@ -92,6 +92,22 @@ export class BasketService {
       }
     }
   }
+  removeItemFromBasketById(id: number, quantity: number) {
+    const basket = this.getCurrentBasketValue();
+    if (basket) {
+      const item = basket.items.find(x => x.id === id);
+      if (item) {
+        if (item.quantity > quantity) {
+          item.quantity -= quantity;
+          this.setBasket(basket);
+        } else {
+          // If quantity to remove is >= current quantity, remove the whole item
+          return this.removeItemFromBasket(item);
+        }
+      }
+    }
+  }
+
   removeItemFromBasket(item: BasketItem) {
     const basket = this.getCurrentBasketValue();
     if (basket?.items.some(x => x.id === item.id)) {

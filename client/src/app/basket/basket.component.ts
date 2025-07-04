@@ -28,8 +28,12 @@ export class BasketComponent implements OnInit {
     this.basket$ = this.basketService.basket$;
   }
 
-  removeBasketItem(item: BasketItem) {
-    this.basketService.removeItemFromBasket(item);
+  removeBasketItem(item: BasketItem | {id: number, quantity: number}) {
+    if ('productName' in item) {
+      this.basketService.removeItemFromBasket(item);
+    } else {
+      this.basketService.removeItemFromBasketById(item.id, item.quantity);
+    }
   }
 
   incrementBasketItem(item: BasketItem) {
