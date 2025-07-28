@@ -11,17 +11,19 @@ namespace Infrastructure.Data.Config
             builder.OwnsOne(o => o.ShipToAddress, a =>
             {
                 a.WithOwner();
-                
             });
-            builder.Property(o => o.Status)
+            
+            builder.Navigation(a => a.ShipToAddress).IsRequired();
+            
+            builder.Property(s => s.Status)
                 .HasConversion(
                     o => o.ToString(),
                     o => (OrderStatus)Enum.Parse(typeof(OrderStatus), o)
                 );
             
-            builder.HasMany(o => o.OrderItems)
-                .WithOne()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Property(o => o.Subtotal).HasColumnType("decimal(18,2)");
+            
+            builder.HasMany(o => o.OrderItems).WithOne().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

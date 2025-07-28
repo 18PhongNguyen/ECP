@@ -1,0 +1,1 @@
+import"./chunk-4CLCTAJ7.js";var t=[{path:"login",loadComponent:()=>import("./chunk-6NPAXPDH.js").then(o=>o.LoginComponent),data:{breadcrum:"Login"}},{path:"register",loadComponent:()=>import("./chunk-K4G6DW6E.js").then(o=>o.RegisterComponent),data:{breadcrum:"Register"}}];export{t as routes};

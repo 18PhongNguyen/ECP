@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\E-CommerenceProject\\api\\API.csproj": {}
+    "D:\\E-CommerenceProject\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\E-CommerenceProject\\api\\API.csproj": {
+    "D:\\E-CommerenceProject\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\E-CommerenceProject\\api\\API.csproj",
+        "projectUniqueName": "D:\\E-CommerenceProject\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\E-CommerenceProject\\api\\API.csproj",
+        "projectPath": "D:\\E-CommerenceProject\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\E-CommerenceProject\\api\\obj\\",
+        "outputPath": "D:\\E-CommerenceProject\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -62,6 +62,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Stripe.net": {
               "target": "Package",
@@ -212,31 +216,31 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[8.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[7.0.3, )"
             },
             "StackExchange.Redis": {
               "target": "Package",
-              "version": "[2.8.31, )"
+              "version": "[2.7.4, )"
             },
             "Stripe.net": {
               "target": "Package",
-              "version": "[44.13.0, )"
+              "version": "[43.9.0, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[7.0.3, )"
             }
           },
           "imports": [

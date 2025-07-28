@@ -1,0 +1,16 @@
+{
+  "routes": [
+    "/",
+    "/account",
+    "/account/login",
+    "/account/register",
+    "/basket",
+    "/checkout",
+    "/checkout/success",
+    "/not-found",
+    "/orders",
+    "/server-error",
+    "/shop",
+    "/test-error"
+  ]
+}

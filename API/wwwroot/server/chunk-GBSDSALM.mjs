@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a as l}from"./chunk-IYAE6LI4.mjs";import{B as r,Ub as m,g as u,i as c,n as i}from"./chunk-FWOWWAD4.mjs";var d=(f,t)=>{let e=r(l),o=r(m),n=localStorage.getItem("token");return n?e.currentUser$?!0:e.loadCurrentUser(n).pipe(c(a=>{if(!a)throw new Error("Invalid user");return!0}),i(a=>(localStorage.removeItem("token"),o.navigate(["/account/login"],{queryParams:{returnUrl:t.url}}),u(!1)))):(o.navigate(["/account/login"],{queryParams:{returnUrl:t.url}}),!1)};export{d as a};

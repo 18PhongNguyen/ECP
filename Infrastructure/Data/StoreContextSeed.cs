@@ -20,6 +20,7 @@ namespace Infrastructure.Data
 
                     foreach(var item in brands)
                     {
+                        item.Id = 0;
                         context.productBrands.Add(item);
                     }
 
@@ -35,6 +36,7 @@ namespace Infrastructure.Data
 
                     foreach(var item in methods)
                     {
+                        item.Id = 0;
                         context.DeliveryMethods.Add(item);
                     }
 
@@ -50,6 +52,8 @@ namespace Infrastructure.Data
 
                     foreach(var item in types)
                     {
+                        // Reset ID to 0 to let SQL Server auto-generate it
+                        item.Id = 0;
                         context.productTypes.Add(item);
                     }
 
@@ -65,6 +69,8 @@ namespace Infrastructure.Data
 
                     foreach(var item in products)
                     {
+                        // Reset ID to 0 to let SQL Server auto-generate it
+                        item.Id = 0;
                         context.Products.Add(item);
                     }
 
@@ -106,6 +112,8 @@ namespace Infrastructure.Data
             var brands = JsonSerializer.Deserialize<List<ProductBrand>>(brandsData);
             foreach(var item in brands)
             {
+                // Reset ID to 0 to let SQL Server auto-generate it
+                item.Id = 0;
                 context.productBrands.Add(item);
             }
             await context.SaveChangesAsync();
@@ -117,6 +125,8 @@ namespace Infrastructure.Data
             var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
             foreach(var item in types)
             {
+                // Reset ID to 0 to let SQL Server auto-generate it
+                item.Id = 0;
                 context.productTypes.Add(item);
             }
             await context.SaveChangesAsync();
@@ -128,6 +138,8 @@ namespace Infrastructure.Data
             var products = JsonSerializer.Deserialize<List<Product>>(productsData);
             foreach(var item in products)
             {
+                // Reset ID to 0 to let SQL Server auto-generate it
+                item.Id = 0;
                 context.Products.Add(item);
             }
             await context.SaveChangesAsync();

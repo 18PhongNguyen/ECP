@@ -8,6 +8,7 @@ using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Core.Entities.Identity;
 using Stripe;
+using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
@@ -17,10 +18,10 @@ internal class Program
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddDbContext<StoreContext>(x => x.UseSqlite(GetConnectionString(builder.Configuration)));
+        builder.Services.AddDbContext<StoreContext>(x => x.UseSqlServer(GetConnectionString(builder.Configuration)));
         builder.Services.AddDbContext<AppIdentityDbContext>(x => 
         {
-            x.UseSqlite(builder.Configuration.GetConnectionString("IdentityConnection"));
+            x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
         });
         builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
             var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
@@ -37,7 +38,7 @@ internal class Program
     {
         options.AddPolicy("AllowLocalhost", policy =>
         {
-            policy.WithOrigins("https://localhost:4200")  
+            policy.WithOrigins("https://localhost:4200", "http://128.199.216.151", "https://128.199.216.151")  
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -86,9 +87,26 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseStaticFiles();
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "browser")),
+            RequestPath = ""
+        });
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "Content")),
+            RequestPath = "/content"
+        });
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseSwaggerDocumentation();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+            endpoints.MapFallbackToController("Index", "Fallback");
+        });
         app.MapControllers();
         app.Run();
     }
