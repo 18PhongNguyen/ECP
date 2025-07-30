@@ -3,8 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
-import { Order } from '@stripe/stripe-js';
-import { OrderToCreate } from '../shared/models/order';
+import { OrderToCreate, Order } from '../shared/models/order';
 
 @Injectable({
   providedIn: 'root'

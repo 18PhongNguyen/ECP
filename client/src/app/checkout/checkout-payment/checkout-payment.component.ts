@@ -98,7 +98,7 @@ export class CheckoutPaymentComponent implements OnInit, AfterViewInit, OnChange
     cardExpiryEl.removeAttribute('class');
     cardCvcEl.removeAttribute('class');
 
-    loadStripe(environment.stripePublishableKey).then(stripe => {
+    loadStripe(environment.stripePublishableKey).then((stripe: any) => {
       this.stripe = stripe;
       const elements = stripe?.elements();
       if (elements) {
@@ -117,64 +117,70 @@ export class CheckoutPaymentComponent implements OnInit, AfterViewInit, OnChange
         };
 
         this.cardNumber = elements.create('cardNumber', { style });
-        this.cardNumber.mount(cardNumberEl);
-        this.cardNumber.on('change', event => {
-          this.cardNumberComplete = event.complete;
-          if (event.error) {
-            this.cardErrors = event.error.message;
-            cardNumberContainer?.classList.add('has-error');
-            cardNumberContainer?.classList.remove('is-complete');
-          } else {
-            this.cardErrors = null;
-            cardNumberContainer?.classList.remove('has-error');
-            if (event.complete) {
-              cardNumberContainer?.classList.add('is-complete');
-            } else {
+        if (this.cardNumber) {
+          this.cardNumber.mount(cardNumberEl);
+          this.cardNumber.on('change', (event: any) => {
+            this.cardNumberComplete = event.complete;
+            if (event.error) {
+              this.cardErrors = event.error.message;
+              cardNumberContainer?.classList.add('has-error');
               cardNumberContainer?.classList.remove('is-complete');
+            } else {
+              this.cardErrors = null;
+              cardNumberContainer?.classList.remove('has-error');
+              if (event.complete) {
+                cardNumberContainer?.classList.add('is-complete');
+              } else {
+                cardNumberContainer?.classList.remove('is-complete');
+              }
             }
-          }
-        })
+          })
+        }
 
         this.cardExpiry = elements.create('cardExpiry', { style });
-        this.cardExpiry.mount(cardExpiryEl);
-        this.cardExpiry.on('change', event => {
-          this.cardExpiryComplete = event.complete;
-          if (event.error) {
-            this.cardErrors = event.error.message;
-            cardExpiryContainer?.classList.add('has-error');
-            cardExpiryContainer?.classList.remove('is-complete');
-          } else {
-            this.cardErrors = null;
-            cardExpiryContainer?.classList.remove('has-error');
-            if (event.complete) {
-              cardExpiryContainer?.classList.add('is-complete');
-            } else {
+        if (this.cardExpiry) {
+          this.cardExpiry.mount(cardExpiryEl);
+          this.cardExpiry.on('change', (event: any) => {
+            this.cardExpiryComplete = event.complete;
+            if (event.error) {
+              this.cardErrors = event.error.message;
+              cardExpiryContainer?.classList.add('has-error');
               cardExpiryContainer?.classList.remove('is-complete');
+            } else {
+              this.cardErrors = null;
+              cardExpiryContainer?.classList.remove('has-error');
+              if (event.complete) {
+                cardExpiryContainer?.classList.add('is-complete');
+              } else {
+                cardExpiryContainer?.classList.remove('is-complete');
+              }
             }
-          }
-        })
+          })
+        }
 
         this.cardCvc = elements.create('cardCvc', { style });
-        this.cardCvc.mount(cardCvcEl);
-        this.cardCvc.on('change', event => {
-          this.cardCvcComplete = event.complete;
-          if (event.error) {
-            this.cardErrors = event.error.message;
-            cardCvcContainer?.classList.add('has-error');
-            cardCvcContainer?.classList.remove('is-complete');
-          } else {
-            this.cardErrors = null;
-            cardCvcContainer?.classList.remove('has-error');
-            if (event.complete) {
-              cardCvcContainer?.classList.add('is-complete');
-            } else {
+        if (this.cardCvc) {
+          this.cardCvc.mount(cardCvcEl);
+          this.cardCvc.on('change', (event: any) => {
+            this.cardCvcComplete = event.complete;
+            if (event.error) {
+              this.cardErrors = event.error.message;
+              cardCvcContainer?.classList.add('has-error');
               cardCvcContainer?.classList.remove('is-complete');
+            } else {
+              this.cardErrors = null;
+              cardCvcContainer?.classList.remove('has-error');
+              if (event.complete) {
+                cardCvcContainer?.classList.add('is-complete');
+              } else {
+                cardCvcContainer?.classList.remove('is-complete');
+              }
             }
-          }
-        })
+          })
+        }
 
       }
-    }).catch(error => {
+    }).catch((error: any) => {
       console.error('Error loading Stripe:', error);
     });
   }
