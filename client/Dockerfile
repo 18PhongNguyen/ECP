@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm install -g @angular/cli && npm ci
 
 # Copy source code and build
 COPY . .

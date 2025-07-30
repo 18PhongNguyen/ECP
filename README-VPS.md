@@ -45,10 +45,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 git clone https://github.com/18PhongNguyen/ECP.git
 cd ECP
 
-# Update configuration với IP VPS của bạn
-sed -i "s/YOUR_VPS_IP/128.199.216.151/g" API/appsettings.Production.json
-sed -i "s/YOUR_VPS_IP/128.199.216.151/g" client/src/environments/environment.production.ts
-
 # Deploy
 docker-compose -f docker-compose.production.yml up -d --build
 ```
