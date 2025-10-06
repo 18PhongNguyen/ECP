@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../account.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TextInputComponent } from '../../shared/components/text-input/text-input.component';
 
@@ -11,7 +11,8 @@ import { TextInputComponent } from '../../shared/components/text-input/text-inpu
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    TextInputComponent
+    TextInputComponent,
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

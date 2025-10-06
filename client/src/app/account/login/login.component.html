@@ -8,6 +8,10 @@
             <app-text-input formControlName="email" [label]="'Email address'"></app-text-input>
             <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
           
+            <div class="d-flex justify-content-end mb-3">
+                <a routerLink="/account/forgot-password" class="text-decoration-none small">Forgot Password?</a>
+            </div>
+
             <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100%;">Sign in</button>
           </form>
     </div>

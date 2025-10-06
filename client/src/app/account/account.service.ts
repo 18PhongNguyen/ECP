@@ -81,4 +81,16 @@ export class AccountService {
   updateUserAddress(address: Address) {
     return this.http.put(this.baseUrl + 'account/address', address);
   }
+
+  forgotPassword(email: string) {
+    return this.http.post(this.baseUrl + 'account/forgotpassword', { email });
+  }
+
+  resetPassword(email: string, token: string, newPassword: string) {
+    return this.http.post(this.baseUrl + 'account/resetpassword', { 
+      email, 
+      token, 
+      newPassword 
+    });
+  }
 }

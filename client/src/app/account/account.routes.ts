@@ -10,5 +10,15 @@ export const routes: Routes = [
     path: 'register',
     loadComponent: () => import('./register/register.component').then(mod => mod.RegisterComponent),
     data: { breadcrum: "Register" }
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./forgot-password/forgot-password.component').then(mod => mod.ForgotPasswordComponent),
+    data: { breadcrum: "Forgot Password" }
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () => import('./reset-password/reset-password.component').then(mod => mod.ResetPasswordComponent),
+    data: { breadcrum: "Reset Password" }
   }
 ];
